@@ -1,0 +1,1 @@
+var API_LINK = "http://recruiting-api.nextcapital.com";

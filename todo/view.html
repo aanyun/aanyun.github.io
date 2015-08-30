@@ -1,0 +1,83 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <p class="navbar-text navbar-right">
+      <span>Welcome, {{user_email}}</span> 
+      <a href ng-click="signOut()">Sign Out</a>
+    </p>
+  </div>
+</nav>
+
+<div class="container">
+  <div>
+    <span class="title">Todos</span>
+    <a href ng-click="addNewDisplay=!addNewDisplay">{{ !addNewDisplay && 'Add New' || 'Hide Form'}}</a>
+  </div>
+  <!--Add New Area-->
+  <div ng-show="addNewDisplay">
+    <hr>
+    <form name="todoForm" ng-submit="add(todoForm.$valid)" novalidate>
+      <div class="form-group">
+        <label for="usr">Description:</label>
+        <textarea class="form-control" name="des" ng-model="des" required/>
+        <p class="small text-danger" ng-show="todoForm.$error.required && todoForm.des.$dirty">Descripiton cannot be empty.</p>
+      </div>
+      <button class="btn btn-primary" type="submit" ng-disabled="todoForm.$invalid || loading">Add New</button>
+    </form>
+  </div>
+
+  <hr>
+
+  <!--Todo List-->
+  <div ng-show="todos.length==0">No content yet</div>
+  <div ng-show="todos.length>0">
+    <div class="small text-right">* drag to change the order</div>
+    <!--Filter area-->
+    <div class="row filters">
+      <div class="col-sm-9">
+        <button class="btn btn-default" ng-class="{'btn-info':incompleteOnly==-1}" ng-click="incompleteOnly=-1">All</button>
+        <button class="btn btn-default" ng-class="{'btn-info':incompleteOnly==1}" ng-click="incompleteOnly=1">Incomplete Only</button>
+        <button class="btn btn-default" ng-class="{'btn-info':incompleteOnly==0}" ng-click="incompleteOnly=0">Complete</button>
+      </div>
+      <div class="col-sm-3">
+        <div class="inner-addon right-addon">
+          <i class="glyphicon glyphicon-search"></i>
+          <input class="form-control pull-right" ng-model="search"/>
+        </div>
+      </div>
+    </div>
+    <!--List-->
+    <table class="table">
+      <thead>
+        <th class="status">Done</th>
+        <th>Description</th>
+        <th></th>
+      </thead>
+      <tbody ui-sortable="sortableOptions" ng-model="todos">
+        <tr ng-repeat="todo in todos | filter:search | cusFilter:incompleteOnly">
+          <td class="status">
+            <button class="btn btn-default btn-sm" ng-click="update(todo)">
+              <span class="text-success glyphicon" ng-class="{'glyphicon-ok':todo.is_complete}" aria-hidden="true">
+              </span>
+            </button>
+          </td>
+          <td>
+            <div ng-show= "!todo.editing" >{{todo.description}}</div>
+            <textarea class="form-control" ng-show="todo.editing" ng-model="todo.newDes"/>
+          </td>
+          <td class="operations">
+            <button ng-show="!todo.editing" class="btn btn-default btn-sm" ng-click="edit(todo)">
+              <span class="text-warning glyphicon glyphicon-pencil" aria-hidden="true"></span>
+            </button>
+            <button ng-show="!todo.editing" class="btn btn-default btn-sm" ng-click="delete(todo)">
+              <span class="text-danger glyphicon glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </button>
+            <div ng-show="todo.editing" class="btn-group-vertical btn-group-sm" role="group">
+              <button type="button" class="btn btn-default" ng-click="save(todo)">Save</button>
+              <button type="button" class="btn btn-default" ng-click="cancel(todo)">Cancel</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

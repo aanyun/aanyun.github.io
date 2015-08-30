@@ -1,0 +1,38 @@
+<div class="panel panel-default signIn-box">
+  <div class="panel-body">
+    <form name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+    <h3>Sign Up</h3>
+    <div class="form-group">
+      <label for="inputEmail3" class="control-label">Email *</label>
+      <div>
+        <input type="email" class="form-control" id="inputEmail3" name="email" ng-model="user.email" required placeholder="Email">
+        <p class="small text-danger" ng-show="userForm.email.$error.required && !userForm.email.$pristine">Email is required.</p>
+        <p class="small text-danger" ng-show="userForm.email.$error.email && !userForm.email.$pristine">Enter a valid email.</p>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="control-label">Password *</label>
+      <div>
+          <input type='password' class="form-control" name="password" ng-model="user.password" required placeholder="Password">
+          <p class="small text-danger" ng-show="userForm.password.$invalid && !userForm.password.$pristine">Password is required.</p>
+      </div>
+    </div>
+    <div class="form-group" ng-show="errorMessage.length>0">
+        <div class="alert alert-danger" role="alert">
+          <div ng-repeat="error in errorMessage">{{error}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+      <div>
+        <span ng-show="loading"><img src = 'assets/img/ajax-loader.gif'> Processing...Please Wait</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <div>
+        <button type="submit" class="btn btn-primary" ng-disabled="loading">Sign Up</button>
+        <a href="sign_in">Sign In</a>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>

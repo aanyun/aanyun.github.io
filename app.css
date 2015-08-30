@@ -1,0 +1,73 @@
+/* app css stylesheet */
+.btn:focus {
+  outline: none!important;
+}
+.btn-default:focus,.btn-default:active {
+  background-color: #fff!important; 
+}
+.btn-info:focus,.btn-info:active {
+  background-color: #5bc0de!important; 
+}
+.title{
+  font-size: 32px;
+  margin-right: 15px;
+  font-weight: bold;
+}
+.signIn-box{
+  margin-top: 15px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.signIn-box h3{
+	text-align: center;
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+.signIn-box input{
+	margin-bottom: 5px;
+}
+.btn-sm {
+    padding: 1px 4px!important;
+    font-size: 16px!important;
+    width: 28px;
+}
+.table textarea{
+	width: 100%;
+  height: 58px!important;
+}
+.table td.operations{
+	width:80px;
+	text-align: center;
+}
+.table td.status,.table th.status{
+	width:70px;
+}
+.filters div{
+  margin-bottom: 5px;
+}
+.ui-sortable-helper{
+	background-color: #fff;
+	width:100%;
+	border: 1px solid #888;
+}
+./* enable absolute positioning */
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  padding-right:20px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
