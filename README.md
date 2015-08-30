@@ -16,4 +16,6 @@
 * Create new todos
 * Edit a todo
 * Mark todos as complete
-* Drag to Reorder todos
+* Drag to Reorder todos (just client-side)
+* Delete a todo (just client-side)
+* Filters for Search and showing Incomplete Tasks
