@@ -1,5 +1,5 @@
 # NextCapital Todo List Challenge
-[API Info](https://github.com/clarkr/nextcapital-todo)
+App requirements and Back-end API info [link](https://github.com/clarkr/nextcapital-todo)
 
 ## Requirements
 - PC
