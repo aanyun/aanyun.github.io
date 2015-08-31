@@ -5,7 +5,7 @@ App requirements and Back-end API info [link](https://github.com/clarkr/nextcapi
 - PC
 - HTML5 Browser
 
-## Demo
+## Website Link
 [link](http://50.63.138.117:304/)
 
 ## Features
