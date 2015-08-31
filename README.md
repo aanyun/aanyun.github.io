@@ -1,5 +1,5 @@
-# todo_newcapital
-[NextCapital Todo List Challenge](https://github.com/clarkr/nextcapital-todo)
+# NextCapital Todo List Challenge
+[API Info](https://github.com/clarkr/nextcapital-todo)
 
 ## Requirements
 - PC
